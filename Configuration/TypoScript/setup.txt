@@ -1,0 +1,7 @@
+plugin.tx_hnfabx {
+    views {
+        templateRootPaths.0 = EXT:hn_fabx/Resources/Private/Templates/
+        partialRootPaths.0 = EXT:hn_fabx/Resources/Private/Partials/
+        layoutRootPaths.0 = EXT:hn_fabx/Resources/Private/Layouts/
+    }
+}
