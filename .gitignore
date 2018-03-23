@@ -20,5 +20,6 @@ web/typo3temp/*
 
 Makefile
 Dockerfile-php
+.dockerignore
 .phpstorm.meta.php
 docker-compose.yml
