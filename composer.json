@@ -2,7 +2,7 @@
     "name": "fabx",
     "type": "typo3-cms-extension",
     "require": {
-
+        "typo3/cms-form": "^8.7"
     },
     "config": {
         "platform": {
