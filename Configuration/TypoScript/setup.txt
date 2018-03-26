@@ -1,7 +1,28 @@
 plugin.tx_hnfabx {
     views {
-        templateRootPaths.0 = EXT:hn_fabx/Resources/Private/Templates/
-        partialRootPaths.0 = EXT:hn_fabx/Resources/Private/Partials/
-        layoutRootPaths.0 = EXT:hn_fabx/Resources/Private/Layouts/
+        templateRootPaths.0 = EXT:fabx/Resources/Private/Templates/
+        partialRootPaths.0 = EXT:fabx/Resources/Private/Partials/
+        layoutRootPaths.0 = EXT:fabx/Resources/Private/Layouts/
     }
+}
+
+lib.fabxFloatingButton = FLUIDTEMPLATE
+lib.fabxFloatingButton < plugin.tx_hnfabx.views
+lib.fabxFloatingButton {
+    templateName = FloatingButton
+
+    variables {
+        actions = RECORDS
+        actions.tables = tx_fabx_action
+        source.data = page:tx_fabx_actions
+    }
+}
+
+tx_fabx_action = CASE
+tx_fabx_action {
+    key.field = type
+
+    form = FLUIDTEMPLATE
+    form < plugin.tx_hnfabx.views
+
 }

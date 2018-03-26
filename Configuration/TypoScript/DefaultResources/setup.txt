@@ -1,0 +1,2 @@
+page.includeCSS.fabx = EXT:fabx/Resources/Public/Css/Fabx.css
+page.includeJSFooter.fabx = EXT:fabx/Resources/Public/JavaScript/Fabx.js
