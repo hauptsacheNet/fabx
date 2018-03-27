@@ -1,4 +1,4 @@
-CREATE TABLE tx_fabx_actions (
+CREATE TABLE tx_fabx_action (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
@@ -22,14 +22,22 @@ CREATE TABLE tx_fabx_actions (
 	l18n_parent int(11) DEFAULT '0' NOT NULL,
 	l18n_diffsource mediumblob,
 	l10n_source int(11) DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	fe_group varchar(100) DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
-  record_type varchar(255) DEFAULT '' NOT NULL,
-  form VARCHAR(255) DEFAULT '' NOT NULL,
-  action_icon varchar(255) DEFAULT '' NOT NULL,
+	tooltip varchar(255) DEFAULT '' NOT NULL,
+	bodytext mediumtext,
+  record_type varchar(255) DEFAULT '0' NOT NULL,
+  icon int(11) unsigned DEFAULT '0' NOT NULL,
 
   PRIMARY KEY (uid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY parent (pid,sorting),
 	KEY language (l18n_parent,sys_language_uid)
+);
+
+CREATE TABLE pages (
+  tx_fabx_action varchar(255) DEFAULT '' NOT NULL,
 );
