@@ -2,7 +2,24 @@
 
 <div class="fabx">
 
-    <ul class="actions">
+    <input type="checkbox" id="fabx__hidden-checkbox" />
+
+    <f:comment>
+        Due to a bug on iOS it's not possible to click the label
+        to toggle the input (checkbox), so we add an empty
+        onclick to the label.
+    </f:comment>
+    <label for="fabx__hidden-checkbox" class="fabx__toggle fabx__btn" onclick>
+        <span class="fabx__toggle--is-closed">
+            <f:image src="EXT:fabx/Resources/Public/Icons/typo3.svg" />
+        </span>
+        <span class="fabx__toggle--is-open">
+            <f:image src="EXT:fabx/Resources/Public/Icons/times.svg" />
+        </span>
+    </label>
+
+
+    <ul class="fabx__actions">
         <f:format.raw>{actions}</f:format.raw>
     </ul>
 
