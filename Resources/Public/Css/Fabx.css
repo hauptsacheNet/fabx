@@ -1,0 +1,95 @@
+.fabx {
+    position: fixed;
+    bottom:44px;
+    right:44px;
+}
+
+#fabx__hidden-checkbox {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.fabx__btn {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 44px;
+    height: 44px;
+}
+.fabx__btn button {
+    width:44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+.fabx__btn img {
+    display: block;
+    width: 44px;
+    height: 44px;
+}
+
+.fabx__toggle--is-closed {
+    display: block;
+}
+.fabx__toggle--is-open {
+    display: none;
+}
+
+#fabx__hidden-checkbox:checked ~ .fabx__toggle .fabx__toggle--is-closed,
+.fabx--is-open .fabx__toggle .fabx__toggle--is-closed{
+    display: none;
+}
+#fabx__hidden-checkbox:checked ~ .fabx__toggle .fabx__toggle--is-open,
+.fabx--is-open .fabx__toggle .fabx__toggle--is-open {
+    display: block;
+}
+
+.fabx__actions {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 44px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#fabx__hidden-checkbox:checked ~ .fabx__actions,
+.fabx--is-open .fabx__actions {
+    display: block;
+}
+
+.fabx__actions li .fabx__modal,
+.fabx--is-open .fabx__actions li:first-child .fabx__modal {
+    display: none;
+}
+.fabx__actions li:first-child .fabx__modal,
+.fabx--is-open .fabx__actions li.fabx--is-open .fabx__modal{
+    display: block;
+}
+
+.fabx__modal {
+    position: absolute;
+    right: 49px;
+    bottom: -44px;
+    min-width: 150px;
+    min-height: 98px;
+    border: 1px solid currentColor;
+}
+.fabx__modal-title {
+    border-bottom: 1px solid currentColor;
+    font-weight: bold;
+    padding: 5px;
+}
+.fabx__modal-body {
+    padding: 0 5px;
+}
+
