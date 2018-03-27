@@ -9,6 +9,25 @@
             <trans-unit id="field.title">
                 <source>Title</source>
             </trans-unit>
+            <trans-unit id="field.record_type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="field.record_type.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="field.tooltip">
+                <source>Tooltip</source>
+            </trans-unit>
+            <trans-unit id="field.icon">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="field.bodytext">
+                <source>Text</source>
+            </trans-unit>
+
+            <trans-unit id="pages.tx_fabx_action">
+                <source>Fabx Action</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
