@@ -1,28 +1,52 @@
-plugin.tx_hnfabx {
-    views {
-        templateRootPaths.0 = EXT:fabx/Resources/Private/Templates/
-        partialRootPaths.0 = EXT:fabx/Resources/Private/Partials/
-        layoutRootPaths.0 = EXT:fabx/Resources/Private/Layouts/
-    }
-}
-
 lib.fabxFloatingButton = FLUIDTEMPLATE
-lib.fabxFloatingButton < plugin.tx_hnfabx.views
 lib.fabxFloatingButton {
+
+    layoutRootPaths.0 = EXT:fabx/Resources/Private/Layouts/
+    partialRootPaths.0 = EXT:fabx/Resources/Private/Partials/
+    templateRootPaths.0 = EXT:fabx/Resources/Private/Templates/
     templateName = FloatingButton
 
     variables {
         actions = RECORDS
         actions.tables = tx_fabx_action
-        source.data = page:tx_fabx_actions
+        actions.source.data = levelfield: -1, tx_fabx_action, slide
+        actions.dontCheckPid = 1
     }
 }
 
-tx_fabx_action = CASE
-tx_fabx_action {
-    key.field = type
-
-    form = FLUIDTEMPLATE
-    form < plugin.tx_hnfabx.views
-
+lib.fabxContentElement = FLUIDTEMPLATE
+lib.fabxContentElement {
+    layoutRootPaths.0 = EXT:fabx/Resources/Private/Layouts/
+    partialRootPaths.0 = EXT:fabx/Resources/Private/Partials/
+    templateRootPaths.0 = EXT:fabx/Resources/Private/Templates/Actions/
 }
+
+tx_fabx_action = FLUIDTEMPLATE
+tx_fabx_action {
+    templateName = Action
+    layoutRootPaths < lib.fabxFloatingButton.layoutRootPaths
+    partialRootPaths < lib.fabxFloatingButton.partialRootPaths
+    templateRootPaths < lib.fabxFloatingButton.templateRootPaths
+
+    dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+    dataProcessing.10 {
+        references {
+            table = tx_fabx_action
+            fieldName = icon
+        }
+        as = icon
+    }
+
+    variables.content = CASE
+    variables.content {
+        key.field = record_type
+
+        default =< lib.fabxContentElement
+        default.templateName = Default
+
+        text =< lib.fabxContentElement
+        text.templateName = Text
+
+    }
+}
+
