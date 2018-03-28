@@ -1,1 +1,5 @@
 page.5554369 =< lib.fabxFloatingButton
+page.jsFooterInline.10 = TEXT
+page.jsFooterInline.10.value (
+    <script>(function($, c) { $(function() { $(c).fabx(); }); })(jQuery, '.fabx');</script>
+)
