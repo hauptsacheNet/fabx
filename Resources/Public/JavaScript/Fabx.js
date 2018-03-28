@@ -56,9 +56,14 @@
         },
 
         openContainer: function() {
+            var that = this;
             this.$element.addClass(this.options.activeClassName);
 
-            $document.on('keyup.' + pluginName, this.closeContainer.bind(this));
+            $document.on('keyup.' + pluginName, function(e) {
+                if(e.keyCode === 27) {
+                    that.closeContainer();
+                }
+            });
 
             this.openFirstActionIfNoneSelected();
 
